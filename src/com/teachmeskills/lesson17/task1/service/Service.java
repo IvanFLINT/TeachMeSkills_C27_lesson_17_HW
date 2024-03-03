@@ -35,7 +35,7 @@ public class Service {
                         }
                         return result;
                     };
-                    System.out.println("Factorial 20 = " + factorial.doSomething(lg));
+                    System.out.println("Factorial = " + factorial.doSomething(lg));
                     break;
                 default:
                     System.out.println("Invalid character entered");
