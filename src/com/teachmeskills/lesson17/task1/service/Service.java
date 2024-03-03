@@ -10,14 +10,14 @@ import java.util.Scanner;
  * The first one reverses the string, the second one calculates the factorial.
  */
 public class Service {
-    public static void service(Scanner sc) {
+    public static void service(Scanner sc, Scanner sc1) {
         System.out.print("Select interface 1 - work with string, 2 - factorial calculation: ");
         try {
             int id = sc.nextInt();
             switch (id) {
                 case 1:
                     System.out.print("Enter the string: ");
-                    String st = sc.nextLine();
+                    String st = sc1.nextLine();
                     MyFunInt<String> myString;
                     myString = (str) -> {
                         return new StringBuilder(str).reverse().toString();
@@ -26,7 +26,7 @@ public class Service {
                     break;
                 case 2:
                     System.out.print("Enter an integer: ");
-                    long lg = sc.nextLong();
+                    long lg = sc1.nextLong();
                     MyFunInt<Long> factorial;
                     factorial = (fac) -> {
                         long result = 1;
