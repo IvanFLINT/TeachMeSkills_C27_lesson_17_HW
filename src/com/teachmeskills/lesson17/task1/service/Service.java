@@ -12,34 +12,39 @@ import java.util.Scanner;
 public class Service {
     public static void service(Scanner sc) {
         System.out.print("Select interface 1 - work with string, 2 - factorial calculation: ");
-        int id = sc.nextInt();
-        switch (id) {
-            case 1:
-                System.out.print("Enter the string: ");
-                String st = sc.nextLine();
-                MyFunInt<String> myString;
-                myString = (str) -> {
-                    return new StringBuilder(str).reverse().toString();
-                };
-                System.out.println(myString.doSomething(st));
-                break;
-            case 2:
-                System.out.print("Enter an integer: ");
-                long lg = sc.nextLong();
-                MyFunInt<Long> factorial;
-                factorial = (fac) -> {
-                    long result = 1;
-                    for (long i = 1; i <= fac; i++) {
-                        result *= i;
-                    }
-                    return result;
-                };
-                System.out.println("Factorial 20 = " + factorial.doSomething(lg));
-                break;
-            default:
-                System.out.println("Invalid character entered");
+        try {
+            int id = sc.nextInt();
+            switch (id) {
+                case 1:
+                    System.out.print("Enter the string: ");
+                    String st = sc.nextLine();
+                    MyFunInt<String> myString;
+                    myString = (str) -> {
+                        return new StringBuilder(str).reverse().toString();
+                    };
+                    System.out.println(myString.doSomething(st));
+                    break;
+                case 2:
+                    System.out.print("Enter an integer: ");
+                    long lg = sc.nextLong();
+                    MyFunInt<Long> factorial;
+                    factorial = (fac) -> {
+                        long result = 1;
+                        for (long i = 1; i <= fac; i++) {
+                            result *= i;
+                        }
+                        return result;
+                    };
+                    System.out.println("Factorial 20 = " + factorial.doSomething(lg));
+                    break;
+                default:
+                    System.out.println("Invalid character entered");
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid data format");
+        } finally {
+            sc.close();
         }
-        sc.close();
     }
 }
 
